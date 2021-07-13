@@ -23,10 +23,16 @@
     <div class="collapse float-right navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active btn btn-primary text-white" aria-current="page" href="#">Sell my Car</a>
+          <%# <a class="nav-link active btn btn-primary text-white" aria-current="page" href="#">Sell my Car</a> %>
+          <%=link_to 'sell my car', new_listing_path, class: "nav-link active btn btn-primary text-white"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Listings</a>
+          <% if user_signed_in? %>
+            <%=link_to 'log out', destroy_user_session_path, method: :delete, class: "nav-link"%>
+          <% else %>
+            <%=link_to 'sign in', new_user_session_path, class: "nav-link"%>
+          <%end%>
+          <%# <a class="nav-link" href="#">Listings</a> %>
         </li>
       </ul>
     </div>
